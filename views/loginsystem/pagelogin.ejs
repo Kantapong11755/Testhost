@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Login</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="logo">Logo</a>
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Service</a>
+            <a href="#">Contact</a>
+            <button class="btnLogin-popup">Login</button>
+        </nav>
+    </header>
+    <section class="section">
+        <div class="wrapper">
+            <span class="icon-close">
+                <i class='bx bx-x-circle'></i>
+            </span>
+            <div class="logreg-box">
+                <!-- login -->
+                <div class="form-box login">
+                    <div class="logreg-title">
+                        <h2>Login</h2>
+                        <p>Please Login to Continues</p>
+                    </div>
+
+                    <form action="/users/login" method="POST">
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bx-envelope'></i></span>
+                            <input type="email" required autocomplete="off" name="uemail">
+                            <label>Email</label>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bx-lock-alt'></i></span>
+                            <input type="password" required autocomplete="off" name="upass">
+                            <label>Password</label>
+                        </div>
+
+                        <div class="remember-forgot">
+                            <label><input type="checkbox">Remember me</label>
+                            <a href="#">Forgot password?</a>
+                        </div>
+
+                        <button type="submit" class="btn">Login</button>
+
+                        <div class="logreg-link">
+                            <p>Don't have an account? <a href='#' class="register-link">Register</a></p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- register -->
+                <div class="form-box register">
+                    <div class="logreg-title">
+                        <h2>Register</h2>
+                        <p>Please provide the following to verify your indentity</p>
+                    </div>
+
+                    <form action="/users/register" method="POST">
+                        <div class="scollaria">
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="email" name="uemail" required autocomplete="off">
+                                <label>Email</label>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-lock-alt'></i></span>
+                                <input type="password" required autocomplete="off" name="pass">
+                                <label>Password</label>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="text" required name="ufname" autocomplete="off">
+                                <label>First Name</label>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="text" required name="ulname" autocomplete="off">
+                                <label>Last Name</label>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="number" required name="ugpa" autocomplete="off" min="1.00" max="4.00"
+                                    step="any">
+                                <label>GPA</label>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="text" required name="ufaculty" autocomplete="off">
+                                <label>Faculty</label>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="text" required name="phonenumber" autocomplete="off">
+                                <label>Phone number</label>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="text" required name="ubranch" autocomplete="off">
+                                <label>Branch</label>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="text" required name="ustype" autocomplete="off">
+                                <label>Attention</label>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="text" required name="uclass" autocomplete="off">
+                                <label>Class level</label>
+                            </div>
+
+                        </div>
+
+                        <button type="submit" class="btn">Register</button>
+
+                        <div class="logreg-link">
+                            <p>Already have an account? <a href='#' class="login-link">Login</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="media-option">
+                <a href="/users/google">
+                    <i class='bx bxl-google'></i>
+                    <span>Sign in with Google</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <script src="\javascripts\script.js"></script>
+</body>
+
+</html>

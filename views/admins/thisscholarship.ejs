@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1 style="padding-top: 25px; text-align: center;">ข้อมูลทุน</h1>
+    <div class="container" style="padding-top: 30px;">
+            <div style="text-align: center;">
+                <label for=""><h4>ชื่อทุน</h4><%= scholarships.sname%></label><br>
+                <label for="" style="padding-top: 15px;"><h4>ประเภททุน</h4><%= scholarships.stype%></label><br>
+                <label for="" style="padding-top: 15px;"><h4>เปิดรับ</h4><%= scholarships.opendate%></label><br>
+                <label for="" style="padding-top: 15px;"><h4>ปิดรับ</h4><%= scholarships.closedate%></label><br>
+                <label for="" style="padding-top: 15px;"><h4>คณะ</h4><%= scholarships.sfaculty%></label><br>
+                <label for="" style="padding-top: 15px;"><h4>สาขา</h4><%= scholarships.sbranch%></label><br>
+                <label for="" style="padding-top: 15px;"><h4>มหาวิทยาลัย</h4><%= scholarships.university%></label><br>
+                <label for="" style="padding-top: 15px;"><h4>ระดับการศึกษา</h4><%= scholarships.sclass%></label><br>
+                <label for="" style="padding-top: 15px;"><h4>ประเทศ</h4><%= scholarships.country%></label><br>
+                <label for="" style="padding-top: 15px;"><h4>เกรดที่รับ</h4><%= scholarships.sgpa%></label><br>
+                <label for="" style="padding-top: 15px;"><h4>ค่าครองชีพ</h4><%= scholarships.costoflive%></label><br>
+                <label for="" style="padding-top: 15px;"><h4>ค่าศึกษา</h4><%= scholarships.costoflean%></label><br>
+                <label for="" style="padding-top: 15px;"><h4>ค่าที่พักอาศัย</h4><%= scholarships.costofabode%></label><br>
+                <label for="" style="padding-top: 15px;"><h4>คะแนน TOEIC</h4><%= scholarships.stoeic%></label><br>
+                <label for="" style="padding-top: 15px;"><h4>คะแนน IELTS</h4><%= scholarships.sielts%></label><br>
+                <label for="" style="padding-top: 15px;"><h4>คะแนน TOEFL</h4><%= scholarships.stoefl%></label><br>
+                <label for="" style="padding-top: 15px;"><h4>ผู้ให้ทุน</h4><%= scholarships.sgiver%></label><br>
+                <label for="" style="padding-top: 15px;"><h4>URL</h4><a href="<%= scholarships.url%>">เยี่ยมชมหน้าเว็ปไซต์</a></label><br>
+                <label for="" style="padding-top: 15px;"><h4>ปักหมุดแล้ว</h4><%= scholarships.pinnedcount%> ครั้ง</label><br>
+                <label for="" style="padding-top: 15px;"><h4>วันที่เพิ่มข้อมูล</h4><%= scholarships.scrapdate%></label><br>
+                <div style="padding-bottom: 100px;">
+
+                </div>
+            </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
+    <link rel="stylesheet" href="D:\helloscrap\public\stylesheets\style.css" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</head>
+<body style="text-align: center; padding-left:30%; padding-right:30%;">
+    <h1 style="text-align: center;">จัดการตัวเลือก</h1>
+    <a href="/">ย้อนกลับ</a>
+    <div>
+        <form action="/scholarships/addcomptype" method="POST">
+            <h4 style="padding-top: 50px;">เพิ่มประเภททุน</h4>
+            <input type="text" name="scholarship_type" id="" autocomplete="off">
+            <button type="submit">เพิ่ม</button>
+        </form>
+    </div>
+    <div>
+        <form action="/scholarships/addcompfaculty" method="POST">
+            <h4 style="padding-top: 50px;">เพิ่มคณะ</h4>
+            <input type="text" name="faculty" id="" autocomplete="off">
+            <button type="submit">เพิ่ม</button>
+        </form>
+    </div>
+    <div>
+        <form action="/scholarships/addcompbranch" method="POST">
+            <h4 style="padding-top: 50px;">เพิ่มสาขา</h4>
+            <select name="faculty_id" id="">
+                <% Object.values(faculty).forEach(function(item){%>
+                    <option value="<%= item._id%>"><%= item.faculty%></option>
+                <% }) %>
+            </select>
+            <input type="text" name="branch" autocomplete="off">
+            <button type="submit">เพิ่ม</button>
+        </form>
+    </div>
+    <h2 style="padding-top: 30px;">ลบข้อมูล</h2>
+    <div class="container">
+        <h4>ประเภททุน</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ประเภททุน</th>
+                    <th>ลบ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% Object.values(listtype).forEach(function(item){%>
+                    <tr>
+                        <form action="/scholarships/typedelete" method="POST">
+                            <td><%= item%></td>
+                            <td><button type="submit" value="<%= item%>" name="nametype" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่ ?')">ลบ</button></td>
+                        </form>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <h4>คณะ</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>คณะ</th>
+                    <th>ลบ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% Object.values(faculty).forEach(function(item){%>     
+                    <tr>
+                        <form action="/scholarships/facultydelete" method="POST">
+                            <td><%= item.faculty%></td>
+                            <td><button type="submit" value="<%= item.faculty%>" name="facultyname" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่ ข้อมูลสาขาจะหายไปด้วย?')">ลบ</button></td>
+                        </form>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h4>สาขา</h4>
+        <form action="/scholarships/selectbranch" method="POST" style="padding-bottom: 100px;">
+            <select name="branchselect" id="">
+                <% Object.values(facultys).forEach(function(item){%>
+                    <option value="<%= item.faculty%>"><%= item.faculty%></option>
+                <% }) %>
+            </select>
+            <button type="submit">เลือก</button>
+        </form>
+    </div>
+   
+</body>
+</html>

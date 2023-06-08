@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1 style="padding-top: 30px; text-align: center; position: relative;">ตัวเลือกการคัดกรอง</h1>
+    <a href="/users/protected" style="padding-left: 20px;">ย้อนกลับ</a>
+    <div class="container">
+        <form class="form-horizontal" action="/users/result" method="POST">
+            <div class="form-group">
+                <label for="" style="padding-left: 30px; padding-top: 30px;">ระบุประเภททุน</label><br> 
+                <div>
+                    <input type="checkbox" id="" name="" onclick="selectAlltype()">
+                    <label for="">ทั้งหมด</label>
+                    <input type="checkbox" id="" name="" onclick="unselectAlltype()">
+                    <label for="">รีเซ็ท</label><br>
+                </div>
+                    <% for (i=0;i< scholarshipstype.length;i++) {%>
+                        <input type="checkbox" id="<%= scholarshipstype[i]%>" name="ft_stype" value="<%= scholarshipstype[i]%>" class="typeselect">
+                        <label for="<%= scholarshipstype[i]%>"><%= scholarshipstype[i]%></label><br>
+                    <%} %>
+                    <label for="" style="padding-left: 30px; padding-top: 30px;">ระบุคณะ</label><br> 
+                    <div>
+                        <input type="checkbox" id="" name="" onclick="selectAllfacu()">
+                        <label for="">ทั้งหมด</label>
+                        <input type="checkbox" id="" name="" onclick="unselectAllfacu()">
+                        <label for="">รีเซ็ท</label><br>
+                    </div>
+                    <% for (i=0;i< scholarshipsfacu.length;i++) {%>
+                        <input type="checkbox" id="<%= scholarshipsfacu[i]%>" name="ft_facu" value="<%= scholarshipsfacu[i]%>" class="facuselect">
+                        <label for=""><%= scholarshipsfacu[i]%></label><br>
+                    <%} %>
+                    <label for="" style="padding-left: 30px; padding-top: 30px;">ระบุคณะ</label><br> 
+                    <div>
+                        <input type="checkbox" id="" name="" onclick="selectAllbranch()">
+                        <label for="">ทั้งหมด</label>
+                        <input type="checkbox" id="" name="" onclick="unselectAllbranch()">
+                        <label for="">รีเซ็ท</label><br>
+                    </div>
+                    <% for (i=0;i< scholarshipsbranch.length;i++) {%>
+                        <input type="checkbox" id="<%= scholarshipsbranch[i]%>" name="ft_branch" value="<%= scholarshipsbranch[i]%>" class="branchselect">
+                        <label for=""><%= scholarshipsbranch[i]%></label><br>
+                    <%} %>
+                    <label for="" style="padding-left: 30px; padding-top: 30px;">ระบุมหาวิทยาลัย</label><br> 
+                    <div>
+                        <input type="checkbox" id="" name="" onclick="selectAlluni()">
+                        <label for="">ทั้งหมด</label>
+                        <input type="checkbox" id="" name="" onclick="unselectAlluni()">
+                        <label for="">รีเซ็ท</label><br>
+                    </div>
+                    <% for (i=0;i< scholarshipsuni.length;i++) {%>
+                        <input type="checkbox" id="<%= scholarshipsuni[i]%>" name="ft_uni" value="<%= scholarshipsuni[i]%>" class="uniselect">
+                        <label for=""><%= scholarshipsuni[i]%></label><br>
+                    <%} %>
+                    <div>
+                        <label for="gpa">ระบุเกรด</label>
+                        <input type="number" id="gpa" min="1.00" max="4.00" step="any" value="4.00" name="ft_gpa">
+                    </div>
+                    <label for="" style="padding-left: 30px; padding-top: 30px;">ระบุประเทศ</label><br> 
+                    <div>
+                        <input type="checkbox" id="" name="" onclick="selectAllcountry()">
+                        <label for="">ทั้งหมด</label>
+                        <input type="checkbox" id="" name="" onclick="unselectAllcountry()">
+                        <label for="">รีเซ็ท</label><br>
+                    </div>
+                    <% for (i=0;i< l_country.length;i++) {%>
+                        <input type="checkbox" id="<%= l_country[i]%>" name="ft_country" value="<%= l_country[i]%>" class="countryselect">
+                        <label for="<%= l_country[i]%>"><%= l_country[i]%></label><br>
+                    <%} %>
+                    <div class="form-group">
+                        <label class="control-label">ระบุระดับการศึกษา</label>
+                        <div class="col-sm-10">
+                            <select name="ft_sclass" id="" class="form-control">
+                                <option value="all">ทั้งหมด</option>
+                                <option value="มัธยม">มัธยม</option>
+                                <option value="ปริญญาตรี">ปริญญาตรี</option>
+                                <option value="ปริญญาโท">ปริญญาโท</option>
+                                <option value="ปริญญาเอก">ปริญญาเอก</option>
+                            </select>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        function selectAlltype() {
+                            let filterCheck=document.getElementsByClassName("typeselect");
+                            let filterChecklen=filterCheck.length;
+                            for(var x=0;x<filterChecklen;x++) {
+                                filterCheck[x].checked=true;
+                            }
+                        }
+                        function unselectAlltype() {
+                            let filterCheck=document.getElementsByClassName("typeselect");
+                            let filterChecklen=filterCheck.length;
+                            for(var x=0;x<filterChecklen;x++) {
+                                filterCheck[x].checked=false;
+                            }
+                        }
+                        function selectAllfacu() {
+                            let filterCheck=document.getElementsByClassName("facuselect");
+                            let filterChecklen=filterCheck.length;
+                            for(var x=0;x<filterChecklen;x++) {
+                                filterCheck[x].checked=true;
+                            }
+                        }
+                        function unselectAllfacu() {
+                            let filterCheck=document.getElementsByClassName("facuselect");
+                            let filterChecklen=filterCheck.length;
+                            for(var x=0;x<filterChecklen;x++) {
+                                filterCheck[x].checked=false;
+                            }
+                        }
+                        function selectAllbranch() {
+                            let filterCheck=document.getElementsByClassName("branchselect");
+                            let filterChecklen=filterCheck.length;
+                            for(var x=0;x<filterChecklen;x++) {
+                                filterCheck[x].checked=true;
+                            }
+                        }
+                        function unselectAllbranch() {
+                            let filterCheck=document.getElementsByClassName("branchselect");
+                            let filterChecklen=filterCheck.length;
+                            for(var x=0;x<filterChecklen;x++) {
+                                filterCheck[x].checked=false;
+                            }
+                        }
+                        function selectAlluni() {
+                            let filterCheck=document.getElementsByClassName("uniselect");
+                            let filterChecklen=filterCheck.length;
+                            for(var x=0;x<filterChecklen;x++) {
+                                filterCheck[x].checked=true;
+                            }
+                        }
+                        function unselectAlluni() {
+                            let filterCheck=document.getElementsByClassName("uniselect");
+                            let filterChecklen=filterCheck.length;
+                            for(var x=0;x<filterChecklen;x++) {
+                                filterCheck[x].checked=false;
+                            }
+                        }
+                                                function selectAlluni() {
+                            let filterCheck=document.getElementsByClassName("uniselect");
+                            let filterChecklen=filterCheck.length;
+                            for(var x=0;x<filterChecklen;x++) {
+                                filterCheck[x].checked=true;
+                            }
+                        }
+                        function unselectAlluni() {
+                            let filterCheck=document.getElementsByClassName("uniselect");
+                            let filterChecklen=filterCheck.length;
+                            for(var x=0;x<filterChecklen;x++) {
+                                filterCheck[x].checked=false;
+                            }
+                        }
+                        function selectAllcountry() {
+                            let filterCheck=document.getElementsByClassName("countryselect");
+                            let filterChecklen=filterCheck.length;
+                            for(var x=0;x<filterChecklen;x++) {
+                                filterCheck[x].checked=true;
+                            }
+                        }
+                        function unselectAllcountry() {
+                            let filterCheck=document.getElementsByClassName("countryselect");
+                            let filterChecklen=filterCheck.length;
+                            for(var x=0;x<filterChecklen;x++) {
+                                filterCheck[x].checked=false;
+                            }
+                        }
+                    </script>
+                <div class="form-group">
+                    <input type="submit" value="คัดกรอง" class="btn btn-success">
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+</body>
+</html>

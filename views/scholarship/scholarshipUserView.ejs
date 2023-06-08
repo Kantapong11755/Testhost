@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Login</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="logo">Logo</a>
+        <nav class="navbar">
+            <a href="/users/protected">Home</a>
+            <a href="/users/scholarship">Scholarship</a>
+            <a href="/users/filter">Filter</a>
+            <a href="/users/pinscholarship">Pinned</a>
+            <a href="/users/logout">Logout</a>
+        </nav>
+    </header>
+    <section class="section">
+        <div class="ariagrid">
+            <div class="reccommandtext">
+                <label for="" class="font-reccommand">SCHOLARSHIP</label>
+            </div>
+            <div class="sculsaria">
+                <div class="scollist">
+                    <% Object.values(scholarships).forEach(function(item){%>
+                        <div class="sculslist">
+                            <form action="/users/pinin" method="POST">
+                                <input type="hidden" value="page1" name="whatpage">
+                                <input type="hidden" name="pin_id" value="<%= item._id%>">
+                                <button type="submit" class="pinbtn">ปักหมุด</button>
+                            </form>
+                            <div class="row-box-top">
+                                <label for="" class="font-name"><%= item.sname%></label>
+                                <label for="" class="font-chile"><%= item.stype%></label>
+                                <label for="" class="font-chile"><%= item.sclass%></label>
+                            </div>
+                            <div class="row-box-botton">
+                                <label for="" class="font-chile"><%= item.sfaculty%></label>
+                                <label for="" class="font-chile"><%= item.sbranch%></label>
+                                <label for="" class="font-chile"><%= item.university%></label>
+                                <label for="" class="font-chile"><%= item.pinnedcount%></label>
+                                <label for="" class="font-chile"><%= item.closedate%></label>
+                                <a href="/scholarships/this/<%= item._id%>">ดูรายละเอียด</a>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+            <div class="wrapper">
+                <span class="icon-close">
+                    <i class='bx bx-x-circle'></i>
+                </span>
+            </div>
+        </div>
+    </section>
+    <script src="\javascripts\script.js"></script>
+</body>
+</html>

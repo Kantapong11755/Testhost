@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+.logo{
+    font-size: 32px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    pointer-events: none;   
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: 40px;
+}
+
+.navbar .btnLogin-popup{
+    position: relative;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.navbar .btnLogin-popup::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: #FFFF;
+    opacity: .85;
+}
+
+.section{
+    min-height: 100vh;
+    background: url('/images/pbg.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.contentaria{
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 20px;
+    top: 20%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    text-align: center;
+}
+
+
+.textinbox{
+    color: white;
+    font-size: 60px;
+    font-weight: 400;
+}
+
+.wrapper{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 100%;
+    background: transparent;
+    backdrop-filter: blur(15px);
+    box-shadow: -1px 0 10px rgba(0, 0, 0, .2);
+    border-left: 2px solid rgba(255, 255, 255, .1);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.wrapper.active-popup{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.icon-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 10px;
+}
+
+.icon-close i{
+    font-size: 32px;
+    color: #333;
+}
+
+.wrapper .form-box.login{
+    display: block;
+}
+
+.wrapper.active .form-box.login{
+    display:none;
+}
+
+.wrapper .form-box.register{
+    display: none;
+}
+
+.wrapper.active .form-box.register{
+    display: block;
+}
+
+.wrapper .logreg-box{
+    width: 100%;
+}
+
+.scollaria {
+    width: 380px;
+    height: 420px;
+    padding-right: 7px;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #fff;
+    opacity: 1;
+}
+
+.dropdown{
+    position: relative;
+    width: 350;
+    height: 40px;
+}
+
+.dropdown input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .05);
+    outline: none;
+    border: none;
+    opacity: 1;
+}
+
+.dropdown::before{
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 28px;
+    width: 12px;
+    height: 2px;
+    background: #555;
+    z-index: 10;
+    transform: rotate(40deg);
+    transition: 0.5s;
+}
+
+.dropdown.active::before{
+    right: 20px;
+}
+
+.dropdown::after{
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 12px;
+    height: 2px;
+    background: #555;
+    z-index: 10;
+    transform: rotate(-40deg);
+    transition: 0.5s;
+}
+
+.dropdown.active::after{
+    right: 28px;
+}
+
+.dropdown .option{
+    position: absolute;
+    top: 55px;
+    width: 100%;
+    background: #FFF;
+    box-shadow: 0 30px rgba(0, 0, 0, .05);
+    border-radius: 10px;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.dropdown.active .option{
+    visibility: visible;
+    opacity: 1;
+}
+
+.dropdown .option div{
+    padding: 12px 20px;
+    cursor: pointer;
+}
+
+.dropdown .option div:hover{
+    background: #62baea;
+}
+
+.logreg-box .logreg-title{
+    text-align: center;
+    margin-bottom: 40px;
+    color: #FFFF;
+}
+
+.logreg-title h2{
+    font-size: 32px;
+}
+
+.logreg-title p {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.logreg-box .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    border-bottom: 2px solid #FFFF;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #FFFF;
+    font-weight: 500;
+    padding-right: 25px;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #FFFF;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+}
+
+.input-box .icon{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 19px;
+    color: #FFFF;
+
+}
+
+.logreg-box .remember-forgot {
+    font-size: 14.5px;
+    color: #FFFF;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input{
+    accent-color: #fff;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: #fff;
+    text-decoration: none;
+}
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+
+.logreg-box .btn{
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    cursor: pointer;
+    font-size: 16px;
+    color: #222;
+    font-weight: 600;
+}
+
+.logreg-box .logreg-link{
+    font-size: 14.5px;
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 15px;
+}
+
+.logreg-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.logreg-link p a:hover{
+    text-decoration: underline;
+}
+
+.media-option{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.media-option a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    border-radius: 40px;
+    color: #fff;
+    text-decoration: none;
+    transition: .5s;
+}
+
+.media-option a:hover{
+    background: rgba(255, 255, 255, .1);
+}
+
+.media-option a i{
+    font-size: 22px;
+    margin: 0 8px 1.5px 0;
+}
+
+.media-option a span{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+

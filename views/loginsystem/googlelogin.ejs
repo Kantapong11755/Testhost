@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Login</title>
+    <link rel="stylesheet" href="/stylesheets/ustyle.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="logo">Logo</a>
+
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Service</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="section">
+        <div class="wrapper active-popup">
+            <span class="icon-close">
+                <i class='bx bx-x-circle'></i>
+            </span>
+
+            <div class="logreg-box">
+                <!-- login -->
+                <div class="form-box login">
+                    <div class="logreg-title">
+                        <h2>We want to know you</h2>
+                        <p>Please anwer questions to Continues</p>
+                    </div>
+                    <form action="/users/register" method="POST">
+                        <div class="scollaria">
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="email" value="<%= uemail%>" name="uemail" required>
+                                <label>Email</label>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-lock-alt'></i></span>
+                                <input type="password" required autocomplete="off" name="pass">
+                                <label>Password</label>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="text" required name="ufname" autocomplete="off">
+                                <label>First Name</label>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="text" required name="ulname" autocomplete="off">
+                                <label>Last Name</label>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="text" required name="ugpa" autocomplete="off">
+                                <label>GPA</label>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="text" required name="ufaculty" autocomplete="off">
+                                <label>Faculty</label>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="text" required name="ubranch" autocomplete="off">
+                                <label>Branch</label>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="text" required name="phonenumber" autocomplete="off">
+                                <label>Phone number</label>
+                            </div>
+                            
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="text" required name="ustype" autocomplete="off">
+                                <label>Attention</label>
+                            </div>
+
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="text" required name="uclass" autocomplete="off">
+                                <label>Class level</label>
+                            </div>
+
+                        </div>
+                        <div style="padding-top: 15px;">
+                            <button type="submit" class="btn">Continues</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- register -->
+                <div class="form-box register">
+                    <div class="logreg-title">
+                        <h2>Register</h2>
+                        <p>Please provide the following to verify your indentity</p>
+                    </div>
+
+                    <form action="#">
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bx-envelope'></i></span>
+                            <input type="text" required>
+                            <label>Full Name</label>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bx-envelope'></i></span>
+                            <input type="email" required>
+                            <label>Email</label>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bx-lock-alt'></i></span>
+                            <input type="password" required>
+                            <label>Password</label>
+                        </div>
+
+                        <form action="#">
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="text" required>
+                                <label>GPA</label>
+                            </div>
+                            <button type="submit" class="btn">Register</button>
+
+                            <div class="logreg-link">
+                                <p>Already have an account? <a href='#' class="login-link">Login</a></p>
+                            </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="\javascripts\uscript.js"></script>
+</body>
+<script>
+    function show(a){
+        document.querySelector('.text02').value = a;
+    }
+
+    let dropdown = document.querySelector('.dropdown');
+    dropdown.onclick = function() {
+        dropdown.classList.toggle('active');
+}
+</script>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div style="padding-left: 20px; padding-top: 20px;" >
+            <a href="/scholarships/filter">ย้อนกลับ</a>
+        </div>
+        <div class="container">
+            <h2 style="text-align: center; padding-top: 25px;">ผลลัพธ์</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ชื่อทุน</th>
+                        <th>เวลาเปิด</th>
+                        <th>เวลาปิด</th>
+                        <th>ประเภททุน</th>
+                        <th>มหาวิทยาลัย</th>
+                        <th>คณะ</th>
+                        <th>ลบ</th>
+                        <th>แก้ไข</th>
+                        <th><input type="checkbox" id="check_all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% Object.values(scholarships).forEach(function(item){%>
+                        <tr>
+                            <td><a href="/scholarships/this/<%= item._id%>"><%= item.sname%></a></td>
+                            <td><%= item.opendate%></td>
+                            <td><%= item.closedate%></td>
+                            <td><%= item.stype%></td>
+                            <td><%= item.university%></td>
+                            <td><%= item.sfaculty%></td>
+                            <td><a class="btn btn-danger" href="/scholarships/delete/<%= item._id%>" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่ ?')">ลบ</a></td>
+                            <td>
+                                <form action="/scholarships/edit" method="POST">
+                                    <input type="hidden" name="edit_id" value="<%= item._id%>">
+                                    <button type="submit" class="btn btn-primary">แก้ไข</button>
+                                </form>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="selecter_id" id="row-check" value="<%= item._id%>">
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+        <script type="text/javascript">
+            $(function() {
+                //If check_all checked then check all table rows
+                $("#check_all").on("click", function () {
+                    if ($("input:checkbox").prop("checked")) {
+                        $("input:checkbox[id='row-check']").prop("checked", true);
+                    } else {
+                        $("input:checkbox[id='row-check']").prop("checked", false);
+                    }
+                });
+        
+                // Check each table row checkbox
+             $("input:checkbox[id='row-check']").on("change", function () {
+                    var total_check_boxes = $("input:checkbox[id='row-check']").length;
+                    var total_checked_boxes = $("input:checkbox[id='row-check']:checked").length;
+                
+                    // If all checked manually then check check_all checkbox
+                    if (total_check_boxes === total_checked_boxes) {
+                        $("#check_all").prop("checked", true);
+                    }
+                    else {
+                        $("#check_all").prop("checked", false);
+                    }
+                });
+            });
+    </script>
+    </body>
+</html>
+
+
