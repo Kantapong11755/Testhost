@@ -6,8 +6,10 @@
             "use":"@now/node"
         }
     ],
-    "router":{
-        "src":"/(.*)",
-        "dest":"app.js"
-    }
+    "routers":[
+        {
+            "src":"/(.*)",
+            "dest":"app.js"
+        }
+    ]
 }
