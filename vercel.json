@@ -6,7 +6,7 @@
             "use":"@now/node"
         }
     ],
-    "routers":[
+    "routes":[
         {
             "src":"/(.*)",
             "dest":"app.js"
